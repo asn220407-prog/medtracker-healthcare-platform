@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import './components/Modal.css';
+
+:root {
+  /* Brand Accents - Dribbble Spruce, Sage & Coral */
+  --primary-color: #16423c;
+  --primary-hover: #235850;
+  --primary-glow: rgba(22, 66, 60, 0.35);
+  --secondary-color: #ff7e67;
+  --secondary-hover: #e76f51;
+  --secondary-glow: rgba(255, 126, 103, 0.3);
+
+  /* Semantic Health Signals */
+  --accent-emerald: #16423c;
+  --emerald-glow: rgba(22, 66, 60, 0.3);
+  --accent-rose: #e05b44;
+  --rose-glow: rgba(224, 91, 68, 0.3);
+  --accent-amber: #e59838;
+  --amber-glow: rgba(229, 152, 56, 0.3);
+
+  /* Modern Dribbble Healthcare Theme */
+  --bg-primary: #f3f8f7;
+  --bg-secondary: #eaf4f2;
+  --card-background: #ffffff;
+  --card-background-solid: #ffffff;
+  --surface-glass: #ffffff;
+  --surface-glass-hover: #f3f8f7;
+  --surface-elevated: #ffffff;
+
+  /* Typography Hierarchy */
+  --text-color: #112a27;
+  --text-secondary: #3b5f59;
+  --text-muted: #5c7f7a;
+  --text-disabled: #8ba9a4;
+
+  /* Borders & Shadows */
+  --border-subtle: #dbe7e4;
+  --border-glass: #cfdfdc;
+  --border-glow: rgba(22, 66, 60, 0.25);
+  --shadow: 0 1px 3px rgba(19, 62, 59, 0.05), 0 1px 2px rgba(19, 62, 59, 0.03);
+  --shadow-lg: 0 10px 25px -3px rgba(19, 62, 59, 0.08), 0 4px 6px -4px rgba(19, 62, 59, 0.03);
+  --shadow-glow: 0 0 20px rgba(22, 66, 60, 0.15);
+
+  /* Radius */
+  --border-radius: 16px;
+  --border-radius-sm: 10px;
+  --border-radius-lg: 22px;
+  --border-radius-pill: 9999px;
+
+  /* Fonts */
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0a1716;
+  --bg-secondary: #102422;
+  --card-background: #112422;
+  --card-background-solid: #112422;
+  --surface-glass: rgba(255, 255, 255, 0.04);
+  --surface-glass-hover: rgba(255, 255, 255, 0.08);
+  --surface-elevated: #16302d;
+
+  --text-color: #edf7f5;
+  --text-secondary: #b5d8d3;
+  --text-muted: #8eb7b1;
+  --text-disabled: #658c86;
+
+  --border-subtle: #1c3b37;
+  --border-glass: #244b46;
+  --border-glow: rgba(75, 162, 149, 0.4);
+  --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] {
+  --bg-primary: #f3f8f7;
+  --bg-secondary: #eaf4f2;
+  --card-background: #ffffff;
+  --card-background-solid: #ffffff;
+  --surface-glass: #ffffff;
+  --surface-glass-hover: #f3f8f7;
+  --surface-elevated: #ffffff;
+
+  --text-color: #112a27;
+  --text-secondary: #3b5f59;
+  --text-muted: #5c7f7a;
+  --text-disabled: #8ba9a4;
+
+  --border-subtle: #dbe7e4;
+  --border-glass: #cfdfdc;
+  --border-glow: rgba(22, 66, 60, 0.25);
+  --shadow: 0 1px 3px rgba(19, 62, 59, 0.05), 0 1px 2px rgba(19, 62, 59, 0.03);
+  --shadow-lg: 0 10px 25px -3px rgba(19, 62, 59, 0.08), 0 4px 6px -4px rgba(19, 62, 59, 0.03);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+  overflow-x: clip;
+}
+
+[data-theme="dark"] html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-primary);
+  background-image: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.04) 0%, transparent 60%);
+  background-attachment: fixed;
+  color: var(--text-color);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: clip;
+}
+
+[data-theme="dark"] body {
+  background-image: 
+    radial-gradient(circle at 50% -10%, rgba(14, 165, 233, 0.14) 0%, transparent 55%),
+    radial-gradient(circle at 90% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 45%);
+}
+
+::selection {
+  background: rgba(14, 165, 233, 0.3);
+  color: #ffffff;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+.app-main-content {
+  min-height: calc(100vh - 140px);
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  overflow-x: clip;
+}
+
+/* Legacy & Dashboard Container with strict gutter alignment */
+.container {
+  padding: 0 var(--container-gutter, clamp(1rem, 4vw, 2rem));
+  width: 100%;
+  max-width: var(--container-max-w, 1240px);
+  margin: 2rem auto;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
