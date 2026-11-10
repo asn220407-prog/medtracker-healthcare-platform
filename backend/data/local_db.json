@@ -1,0 +1,405 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "dr.alice@hospital.com",
+      "password": "$2b$10$mAJj0NE7MqT8AwQLv0IFBe90sVzQw5bbhylNUKNnzTbpDTxgXXniu",
+      "role": "doctor",
+      "created_at": "2026-11-01T08:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "email": "bob@hospital.com",
+      "password": "$2b$10$mAJj0NE7MqT8AwQLv0IFBe90sVzQw5bbhylNUKNnzTbpDTxgXXniu",
+      "role": "patient",
+      "created_at": "2026-11-01T08:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "email": "alicejohn@med.com",
+      "password": "$2b$10$cg/BzOUy5otgTF8JCTeII.Lw4M.kxLcwCjiiheCOPZK.dwZo2mAQy",
+      "role": "doctor",
+      "created_at": "2026-11-09T19:55:54.755Z"
+    },
+    {
+      "id": 4,
+      "email": "dudevivek@patient.com",
+      "password": "$2b$10$OZQolBAZyIParywAUkIPuurCBnpmZhRL5td95rso17DSoashTxLXi",
+      "role": "patient",
+      "created_at": "2026-11-09T19:56:58.547Z"
+    },
+    {
+      "id": 5,
+      "email": "alicebob@doctor.com",
+      "password": "$2b$10$hCa..qARh6TZTyqbLVl6oulr3xr1YK780MblR7p1OhjJyLuhxFHke",
+      "role": "doctor",
+      "created_at": "2026-11-09T21:27:12.742Z"
+    }
+  ],
+  "doctor_profiles": [
+    {
+      "user_id": 1,
+      "full_name": "Dr. Alice Smith",
+      "qualification": "MD - Internal Medicine, Cardiology Specialist",
+      "contact_details": "alice.smith@hospital.com • (555) 234-5678"
+    },
+    {
+      "user_id": 3,
+      "full_name": "AliceJohn",
+      "qualification": "MD- Cardiology"
+    },
+    {
+      "user_id": 5,
+      "full_name": "Alice Bob",
+      "qualification": "MD, Cardiology"
+    }
+  ],
+  "patient_profiles": [
+    {
+      "user_id": 2,
+      "full_name": "Bob Johnson",
+      "sex": "Male",
+      "age": 48,
+      "weight": 82.5
+    },
+    {
+      "user_id": 4,
+      "full_name": "vivek",
+      "sex": "male",
+      "age": 28,
+      "weight": 85
+    }
+  ],
+  "doctor_patient_map": [
+    {
+      "id": 1,
+      "doctor_id": 1,
+      "patient_id": 2
+    },
+    {
+      "id": 2,
+      "doctor_id": 3,
+      "patient_id": 4
+    }
+  ],
+  "appointments": [
+    {
+      "id": 1,
+      "patient_id": 2,
+      "doctor_id": 1,
+      "appointment_date": "2026-11-01 10:00:00",
+      "present_complaint": "Mild hypertension and morning fatigue. Routine blood pressure check.",
+      "final_diagnosis": "Stage 1 Essential Hypertension with mild hypercholesterolemia. Commenced daily regimen."
+    },
+    {
+      "id": 2,
+      "patient_id": 4,
+      "doctor_id": 3,
+      "appointment_date": "Prescription consultation",
+      "present_complaint": "Regimen prescribed",
+      "final_diagnosis": ""
+    }
+  ],
+  "medications": [
+    {
+      "id": 1,
+      "appointment_id": 1,
+      "name": "Amoxicillin",
+      "dosage": "500mg, 1 capsule 3 times daily after meals",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-15"
+    },
+    {
+      "id": 2,
+      "appointment_id": 1,
+      "name": "Lisinopril",
+      "dosage": "10mg, 1 tablet once daily in the morning",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-30"
+    },
+    {
+      "id": 3,
+      "appointment_id": 1,
+      "name": "Metformin",
+      "dosage": "500mg, 1 tablet twice daily with meals",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-30"
+    },
+    {
+      "id": 4,
+      "appointment_id": 1,
+      "name": "paracetamol",
+      "dosage": "20mg (Once daily at bedtime)",
+      "start_date": "2026-11-08",
+      "end_date": "2026-11-11"
+    },
+    {
+      "id": 5,
+      "appointment_id": 2,
+      "name": "Bagundupo",
+      "dosage": "daily twice",
+      "start_date": "2026-11-10",
+      "end_date": "2026-11-12"
+    }
+  ],
+  "medication_adherence": [
+    {
+      "id": 1,
+      "medication_id": 1,
+      "patient_id": 2,
+      "taken_date": "2026-11-01"
+    },
+    {
+      "id": 2,
+      "medication_id": 1,
+      "patient_id": 2,
+      "taken_date": "2026-11-02"
+    },
+    {
+      "id": 3,
+      "medication_id": 1,
+      "patient_id": 2,
+      "taken_date": "2026-11-03"
+    },
+    {
+      "id": 4,
+      "medication_id": 1,
+      "patient_id": 2,
+      "taken_date": "2026-11-05"
+    },
+    {
+      "id": 5,
+      "medication_id": 1,
+      "patient_id": 2,
+      "taken_date": "2026-11-06"
+    },
+    {
+      "id": 6,
+      "medication_id": 1,
+      "patient_id": 2,
+      "taken_date": "2026-11-07"
+    },
+    {
+      "id": 7,
+      "medication_id": 2,
+      "patient_id": 2,
+      "taken_date": "2026-11-01"
+    },
+    {
+      "id": 8,
+      "medication_id": 2,
+      "patient_id": 2,
+      "taken_date": "2026-11-02"
+    },
+    {
+      "id": 9,
+      "medication_id": 2,
+      "patient_id": 2,
+      "taken_date": "2026-11-03"
+    },
+    {
+      "id": 10,
+      "medication_id": 2,
+      "patient_id": 2,
+      "taken_date": "2026-11-04"
+    },
+    {
+      "id": 11,
+      "medication_id": 2,
+      "patient_id": 2,
+      "taken_date": "2026-11-06"
+    },
+    {
+      "id": 12,
+      "medication_id": 2,
+      "patient_id": 2,
+      "taken_date": "2026-11-07"
+    },
+    {
+      "id": 13,
+      "medication_id": 1,
+      "patient_id": 2,
+      "taken_date": "2026-11-08"
+    },
+    {
+      "id": 14,
+      "medication_id": 1,
+      "patient_id": 2,
+      "taken_date": "2026-11-09"
+    },
+    {
+      "id": 15,
+      "medication_id": 5,
+      "patient_id": 4,
+      "taken_date": "2026-11-10"
+    }
+  ],
+  "health_tips": [
+    {
+      "id": 1,
+      "patient_id": 2,
+      "doctor_id": 1,
+      "tip_text": "Maintain a low-sodium diet (< 2g/day) and drink at least 2.5 liters of water daily."
+    },
+    {
+      "id": 2,
+      "patient_id": 2,
+      "doctor_id": 1,
+      "tip_text": "Engage in 30 minutes of moderate aerobic walking every morning."
+    },
+    {
+      "id": 3,
+      "patient_id": 2,
+      "doctor_id": 1,
+      "tip_text": "Avoid caffeinated beverages after 6 PM.",
+      "created_at": "2026-11-07T23:10:53.237Z"
+    },
+    {
+      "id": 4,
+      "patient_id": 2,
+      "doctor_id": 1,
+      "tip_text": "Avoid caffeinated beverages after 6 PM.",
+      "created_at": "2026-11-07T23:11:26.654Z"
+    },
+    {
+      "id": 5,
+      "patient_id": 2,
+      "doctor_id": 1,
+      "tip_text": "Avoid caffeinated beverages after 6 PM.",
+      "created_at": "2026-11-09T19:29:40.598Z"
+    },
+    {
+      "id": 6,
+      "patient_id": 2,
+      "doctor_id": 1,
+      "tip_text": "Avoid caffeinated beverages after 6 PM.",
+      "created_at": "2026-11-09T19:39:40.959Z"
+    },
+    {
+      "id": 7,
+      "patient_id": 4,
+      "doctor_id": 3,
+      "tip_text": "Drink water daily",
+      "created_at": "2026-11-09T19:57:17.793Z"
+    }
+  ],
+  "reminders": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "patient_id": 2,
+      "medication_id": 1,
+      "reminder_time": "08:00:00",
+      "reminder_message": "Take morning Amoxicillin dose",
+      "is_active": 1
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "patient_id": 2,
+      "sender_id": 1,
+      "sender_role": "doctor",
+      "sender_name": "Dr. Alice Smith",
+      "message_text": "Hello Bob, please let me know if you experience any mild dizziness after the morning Lisinopril dose.",
+      "created_at": "2026-11-02T09:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "patient_id": 2,
+      "sender_id": 2,
+      "sender_role": "patient",
+      "sender_name": "Bob Johnson",
+      "message_text": "Good morning Dr. Alice, feeling much better today. Blood pressure readings have stabilized at 122/82.",
+      "created_at": "2026-11-02T09:30:00.000Z"
+    },
+    {
+      "id": 3,
+      "patient_id": 2,
+      "sender_id": 2,
+      "sender_role": "patient",
+      "sender_name": "Bob Johnson",
+      "message_text": "I also uploaded my recent lipid panel report for your review.",
+      "created_at": "2026-11-07T22:45:00.000Z"
+    },
+    {
+      "id": 4,
+      "patient_id": 2,
+      "sender_id": 1,
+      "sender_role": "doctor",
+      "sender_name": "Dr. Alice Smith",
+      "message_text": "Received your lipid report, Bob! Everything looks on track. Keep up the daily morning walk.",
+      "created_at": "2026-11-07T22:50:00.000Z"
+    },
+    {
+      "id": 5,
+      "patient_id": 2,
+      "sender_id": 2,
+      "sender_role": "patient",
+      "sender_name": "Bob Johnson",
+      "message_text": "Hello Dr. Alice, please check my latest lipid report.",
+      "created_at": "2026-11-09T19:29:40.559Z"
+    },
+    {
+      "id": 6,
+      "patient_id": 2,
+      "sender_id": 1,
+      "sender_role": "doctor",
+      "sender_name": "Dr. Alice Smith",
+      "message_text": "Received your report, Bob! Everything looks on track.",
+      "created_at": "2026-11-09T19:29:40.574Z"
+    },
+    {
+      "id": 7,
+      "patient_id": 2,
+      "sender_id": 2,
+      "sender_role": "patient",
+      "sender_name": "Bob Johnson",
+      "message_text": "Hello Dr. Alice, please check my latest lipid report.",
+      "created_at": "2026-11-09T19:39:40.919Z"
+    },
+    {
+      "id": 8,
+      "patient_id": 2,
+      "sender_id": 1,
+      "sender_role": "doctor",
+      "sender_name": "Dr. Alice Smith",
+      "message_text": "Received your report, Bob! Everything looks on track.",
+      "created_at": "2026-11-09T19:39:40.932Z"
+    }
+  ],
+  "lab_reports": [
+    {
+      "id": 1,
+      "patient_id": 2,
+      "doctor_id": 1,
+      "file_name": "Lipid_Panel_Report_2026.pdf",
+      "file_path": "/uploads/lab_reports/sample_cbc.pdf",
+      "upload_date": "2026-11-07T23:10:53.205Z"
+    },
+    {
+      "id": 2,
+      "patient_id": 2,
+      "doctor_id": 1,
+      "file_name": "Lipid_Panel_Report_2026.pdf",
+      "file_path": "/uploads/lab_reports/report-1794252580531-725808421.pdf",
+      "upload_date": "2026-11-09T19:29:40.542Z"
+    },
+    {
+      "id": 3,
+      "patient_id": 2,
+      "doctor_id": 1,
+      "file_name": "Lipid_Panel_Report_2026.pdf",
+      "file_path": "/uploads/lab_reports/report-1794253180889-92452619.pdf",
+      "upload_date": "2026-11-09T19:39:40.901Z"
+    },
+    {
+      "id": 4,
+      "patient_id": 4,
+      "doctor_id": 3,
+      "file_name": "TrustworthyAI_2026_3 (2).pdf",
+      "file_path": "/uploads/lab_reports/report-1794254258844-199813404.pdf",
+      "upload_date": "2026-11-09T19:57:38.859Z"
+    }
+  ]
+}
