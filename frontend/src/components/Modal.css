@@ -1,0 +1,338 @@
+/* Modern Cyber-Clean Modal Overlay & Content */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  box-sizing: border-box;
+  animation: modalFadeIn 0.15s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg, 18px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(14, 165, 233, 0.15);
+  padding: 2.25rem;
+  width: 100%;
+  max-width: 520px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  animation: modalPopIn 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0ea5e9, #6366f1, #10b981);
+}
+
+@keyframes modalPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-content h3 {
+  margin: 0 0 1.5rem 0;
+  color: #f8fafc;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  text-align: left;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted, #94a3b8);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'JetBrains Mono', monospace;
+  display: block;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  background: rgba(3, 7, 18, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm, 8px);
+  color: #f8fafc;
+  font-size: 0.95rem;
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-content input::placeholder,
+.modal-content textarea::placeholder {
+  color: #64748b;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus,
+.modal-content select:focus {
+  border-color: #0ea5e9;
+  background: rgba(3, 7, 18, 0.85);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2), 0 0 15px rgba(14, 165, 233, 0.2);
+}
+
+.modal-content textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.modal-content select option {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.modal-actions button {
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius-sm, 8px);
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+}
+
+.modal-actions button[type="submit"] {
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.35);
+}
+
+.modal-actions button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+}
+
+.modal-actions button[type="button"] {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+.modal-actions button[type="button"]:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 640px) {
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .modal-content {
+    padding: 2rem 1.25rem 1.75rem;
+    margin: 0;
+    max-width: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+    box-sizing: border-box;
+    animation: modalSlideUpMobile 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .modal-content::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 44px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .modal-actions button {
+    width: 100%;
+    padding: 0.8rem;
+  }
+}
+
+@keyframes modalSlideUpMobile {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Prescription Smart-Chips */
+.macro-chips-wrapper {
+  margin: -6px 0 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.macro-chips-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: var(--font-mono, monospace);
+}
+
+.macro-chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.macro-chip-btn {
+  background: rgba(0, 240, 181, 0.08);
+  border: 1px solid rgba(0, 240, 181, 0.22);
+  color: #00f0b5;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.macro-chip-btn:hover {
+  background: rgba(0, 240, 181, 0.2);
+  border-color: #00f0b5;
+  transform: translateY(-1px);
+}
+
+/* Light theme overrides for Modals */
+[data-theme="light"] .modal-content {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15), 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .modal-content h3 {
+  color: #0f172a;
+}
+
+[data-theme="light"] .modal-content label {
+  color: #475569;
+}
+
+[data-theme="light"] .modal-content input,
+[data-theme="light"] .modal-content textarea,
+[data-theme="light"] .modal-content select {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+}
+
+[data-theme="light"] .modal-content input::placeholder,
+[data-theme="light"] .modal-content textarea::placeholder {
+  color: #94a3b8;
+}
+
+[data-theme="light"] .modal-content input:focus,
+[data-theme="light"] .modal-content textarea:focus,
+[data-theme="light"] .modal-content select:focus {
+  background: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+[data-theme="light"] .modal-content select option {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+[data-theme="light"] .modal-actions {
+  border-top: 1px solid #e2e8f0;
+}
+
+[data-theme="light"] .modal-actions button[type="button"] {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+}
+
+[data-theme="light"] .modal-actions button[type="button"]:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+[data-theme="light"] .macro-chips-title {
+  color: #64748b;
+}
+
+[data-theme="light"] .macro-chip-btn {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #166534;
+}
+
+[data-theme="light"] .macro-chip-btn:hover {
+  background: #dcfce7;
+  border-color: #22c55e;
+}
+
