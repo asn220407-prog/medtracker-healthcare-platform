@@ -1,0 +1,181 @@
+.adherence-chart-wrapper {
+  background: var(--bg-card, rgba(15, 23, 42, 0.75));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 24px;
+  border-radius: var(--radius-lg, 16px);
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  box-shadow: var(--shadow-card, 0 8px 32px rgba(0, 0, 0, 0.36));
+  margin-top: 18px;
+  transition: border-color var(--transition-fast, 0.2s ease), box-shadow var(--transition-fast, 0.2s ease);
+}
+
+.adherence-chart-wrapper:hover {
+  border-color: rgba(14, 165, 233, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), 0 0 25px rgba(14, 165, 233, 0.08);
+}
+
+.chart-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted, #94a3b8);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.btn-toggle-group {
+  display: inline-flex;
+  background: rgba(3, 7, 18, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  padding: 3px;
+  gap: 3px;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted, #94a3b8);
+  cursor: pointer;
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.toggle-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.toggle-btn.active {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.25), rgba(99, 102, 241, 0.25));
+  border-color: rgba(14, 165, 233, 0.5);
+  color: #38bdf8;
+  font-weight: 700;
+  box-shadow: 0 0 14px rgba(14, 165, 233, 0.3);
+}
+
+.chart-canvas-container {
+  position: relative;
+  height: 290px;
+  width: 100%;
+}
+
+.adherence-chart-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-muted, #94a3b8);
+  font-style: italic;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: var(--radius-md, 12px);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 480px) {
+  .adherence-chart-wrapper {
+    padding: 16px 12px;
+    box-sizing: border-box;
+  }
+
+  .chart-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+
+  .control-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .btn-toggle-group {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .toggle-btn {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    flex: 1;
+    text-align: center;
+  }
+
+  .chart-canvas-container {
+    height: 220px;
+  }
+}
+
+/* ==========================================================================
+   LIGHT THEME OVERRIDES FOR ADHERENCE CHART
+   ========================================================================== */
+
+[data-theme="light"] .adherence-chart-wrapper {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .adherence-chart-wrapper:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .chart-controls {
+  border-bottom-color: #e2e8f0;
+}
+
+[data-theme="light"] .control-group label {
+  color: #64748b;
+}
+
+[data-theme="light"] .btn-toggle-group {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+[data-theme="light"] .toggle-btn {
+  color: #475569;
+}
+
+[data-theme="light"] .toggle-btn:hover {
+  color: #0f172a;
+  background: #e2e8f0;
+}
+
+[data-theme="light"] .toggle-btn.active {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
+}
+
+[data-theme="light"] .adherence-chart-empty {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #64748b;
+}
+
