@@ -1,0 +1,167 @@
+/* Modern Cyber Dropzone & Upload Modal */
+.upload-report-modal {
+  max-width: 520px;
+}
+
+.upload-patient-info {
+  text-align: center;
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.modal-error-banner {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm, 8px);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  text-align: center;
+}
+
+.file-upload-dropzone {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.file-upload-dropzone input[type="file"] {
+  display: none;
+}
+
+.file-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+  border: 2px dashed rgba(14, 165, 233, 0.4);
+  border-radius: var(--radius-md, 14px);
+  background: rgba(14, 165, 233, 0.03);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.file-upload-label:hover {
+  background: rgba(14, 165, 233, 0.08);
+  border-color: #0ea5e9;
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+  transform: translateY(-2px);
+}
+
+.file-upload-icon {
+  font-size: 2.8rem;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.5));
+}
+
+.file-upload-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 0.25rem;
+  word-break: break-all;
+}
+
+.file-upload-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted, #94a3b8);
+}
+
+.upload-submit-btn {
+  background: linear-gradient(135deg, #0ea5e9, #6366f1) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.35) !important;
+}
+
+.upload-submit-btn:hover {
+  background: linear-gradient(135deg, #38bdf8, #818cf8) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5) !important;
+}
+
+
+/* Upload Progress & Security Footer */
+.modal-upload-progress-box {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.modal-upload-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.modal-upload-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0ea5e9, #10b981);
+  border-radius: 9999px;
+  transition: width 0.2s ease;
+}
+
+.modal-upload-progress-text {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #94a3b8);
+  display: flex;
+  align-items: center;
+}
+
+.upload-security-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--text-tertiary, #64748b);
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ==========================================================================
+   LIGHT THEME OVERRIDES FOR UPLOAD LAB REPORT MODAL
+   ========================================================================== */
+
+[data-theme="light"] .upload-patient-info {
+  color: #64748b;
+}
+
+[data-theme="light"] .file-upload-label {
+  background: #f0f9ff;
+  border-color: #7dd3fc;
+}
+
+[data-theme="light"] .file-upload-label:hover {
+  background: #e0f2fe;
+  border-color: #0284c7;
+}
+
+[data-theme="light"] .file-upload-text {
+  color: #0f172a;
+}
+
+[data-theme="light"] .file-upload-hint {
+  color: #64748b;
+}
+
+[data-theme="light"] .modal-upload-progress-bar {
+  background: #e2e8f0;
+}
+
+[data-theme="light"] .modal-upload-progress-text {
+  color: #64748b;
+}
+
+[data-theme="light"] .upload-security-footer {
+  border-top-color: #e2e8f0;
+  color: #64748b;
+}
+
