@@ -1,0 +1,231 @@
+Here is the updated dev-flow, which aligns with the final database schema you provided. The primary change is in Step 6, reflecting the more detailed reminders table.
+
+1. Project Setup and Authentication
+Create a full-stack Medication Tracker web application with the following initial setup:
+
+TECH STACK
+
+Frontend: React (functional components, hooks)
+
+Backend: Node.js + Express
+
+Database: MySQL
+
+Authentication: bcrypt for password hashing, jsonwebtoken (JWT) for sessions
+
+FRONTEND
+
+Create a single Login/Register page.
+
+This page must include a Role Selector (e.g., Radio Buttons) for "Doctor" and "Patient".
+
+Include a navbar with the app title and a conditional Logout button (hidden on the login page).
+
+AUTHENTICATION
+
+Implement bcrypt password hashing for secure authentication.
+
+POST /api/auth/register: Endpoint for new user registration. Must save the role ('doctor' or 'patient') in the users table.
+
+POST /api/auth/login: Endpoint that validates email, password, AND the selected role against the users table.
+
+On successful login, issue a JWT that includes the user_id and role in its payload.
+
+DATABASE SCHEMA (Initial)
+
+users: id, email, password (hashed), role (ENUM: 'doctor', 'patient')
+
+doctor_profiles: user_id (FK to users.id), full_name, qualification
+
+patient_profiles: user_id (FK to users.id), full_name, sex, age, weight
+
+After login, redirect to a placeholder: Doctors to /dashboard and Patients to /vital-tracker.
+
+2. Doctor Dashboard & Patient Management
+Build the Doctor's main dashboard for managing their patient list.
+
+NEW PAGE
+
+Create a /dashboard page, protected by middleware (must be 'doctor' role).
+
+Display the Doctor's profile info (Name, ID, Qualification) from doctor_profiles.
+
+Display a "My Patients List" section.
+
+PATIENT LIST UI
+
+Show a table or grid of patients linked to this doctor.
+
+Each item shows: Patient Name, ID, Latest Appointment Date.
+
+Each item must have buttons: "View Vital Tracker" and "View Lab Reports".
+
+Include Add, Edit, and Delete buttons for patient management.
+
+DATABASE SCHEMA (New)
+
+doctor_patient_map: id, doctor_id (FK to users.id), patient_id (FK to users.id). This table links doctors to their patients.
+
+API ENDPOINTS (Doctor-only)
+
+GET /api/doctor/dashboard: Returns the doctor's profile and their list of patients (by joining doctor_patient_map with patient_profiles).
+
+POST /api/doctor/patients: Adds a new patient (to users and patient_profiles) and links them in doctor_patient_map.
+
+PUT /api/doctor/patients/:patient_id: Edits a patient's details in patient_profiles.
+
+DELETE /api/doctor/patients/:patient_id: Removes a patient's link from doctor_patient_map.
+
+3. Vital Tracker (Doctor & Patient View)
+Create the core "Vital Tracker" page, which is the main view for Patients and a sub-view for Doctors.
+
+NEW PAGE
+
+Create a /vital-tracker page (for patients) and /vital-tracker/:patient_id (for doctors).
+
+This page is the default login redirect for Patients.
+
+It displays all information for one patient.
+
+UI SECTIONS
+
+Patient Vitals: Display static info from patient_profiles (Name, ID, Sex, Age, Weight) and latest appointments (Present Complaint, Final Diagnosis).
+
+Medications List: A list of all prescribed medications from the medications table.
+
+Health Tips: A section for displaying health tips from the health_tips table.
+
+ROLE-BASED PERMISSIONS
+
+Doctor View:
+
+Can add/edit/delete items in the Medications List (CRUD on medications table).
+
+Can add/edit/delete items in the Health Tips section (CRUD on health_tips table).
+
+Patient View:
+
+Read-only: Cannot add, edit, or delete Medications or Health Tips.
+
+DATABASE SCHEMA (New)
+
+appointments: id, patient_id, doctor_id, appointment_date, present_complaint, final_diagnosis.
+
+medications: id, appointment_id (FK), name, dosage, start_date, end_date.
+
+health_tips: id, patient_id, doctor_id, tip_text.
+
+API ENDPOINTS
+
+GET /api/patient/vital-tracker: (For Patients) Fetches their own data from patient_profiles, appointments, medications, and health_tips.
+
+GET /api/patient/:patient_id/vital-tracker: (For Doctors) Fetches a specific patient's data.
+
+POST /api/doctor/medications: (Doctor-only) Adds a new medication for a patient.
+
+POST /api/doctor/health-tips: (Doctor-only) Adds a new health tip for a patient. (Include PUT/DELETE as well).
+
+4. Interactive Medication Calendar
+Add the interactive calendar component to the "Vital Tracker" page for each medication.
+
+NEW COMPONENT
+
+Create a MedicationCalendar component.
+
+It should render a calendar UI.
+
+The calendar's active range is determined by the medication's start_date and end_date.
+
+FUNCTIONALITY
+
+Patient Role:
+
+Days on the calendar are clickable.
+
+Clicking a day marks it as "taken" (changes color to Green).
+
+This action is disabled for Doctors.
+
+Color Logic (Frontend):
+
+Fetch all "taken" days from the backend (medication_adherence table).
+
+Green: The date is in the medication_adherence table.
+
+Red: The date is in the past, within the prescription period, and not in the medication_adherence table (i.e., "missed").
+
+White/Grey: The date is in the future or outside the prescription period.
+
+DATABASE SCHEMA (New)
+
+medication_adherence: id, medication_id (FK), patient_id (FK), taken_date (DATE).
+
+API ENDPOINTS
+
+GET /api/patient/adherence/:medication_id: Returns a list of all taken_dates for a specific medication.
+
+POST /api/patient/calendar/tick: (Patient-only) Adds a new entry to the medication_adherence table. (Body: { medication_id, date }).
+
+5. Progress Bar & Adherence Charts
+Add visualization elements to the "Vital Tracker" to show progress.
+
+NEW COMPONENTS
+
+Add a Progress Bar component.
+
+Add a Chart component (using a library like Chart.js with react-chartjs-2).
+
+PROGRESS BAR LOGIC
+
+Calculate % based on calendar data.
+
+Formula: (Total rows in medication_adherence for this med) / (Total prescribed days passed so far) * 100.
+
+This calculation should happen on the backend.
+
+CHART LOGIC
+
+Use the adherence data to plot a line or bar chart showing "Doses Taken vs. Doses Missed" over the last 7 or 30 days.
+
+API ENDPOINT
+
+GET /api/patient/:patient_id/progress:
+
+Returns a JSON object with calculated progress percentages for each medication.
+
+Returns data formatted for the adherence charts.
+
+6. Lab Reports & Alarms
+Implement the final file-handling and notification features.
+
+LAB REPORTS (Doctor Feature)
+
+Backend: Integrate multer middleware in Express to handle file uploads (PDFs, Images).
+
+UI: Add an "Upload Report" button to the Doctor's Dashboard or Vital Tracker.
+
+UI: Add a "View Reports" section that lists all uploaded files from the lab_reports table.
+
+DATABASE SCHEMA (New): lab_reports (id, patient_id, doctor_id, file_name, file_path, upload_date).
+
+API ENDPOINT: POST /api/doctor/lab-reports (Doctor-only) - A multipart/form-data endpoint to upload the file.
+
+ALARM / REMINDER (Both Roles)
+
+UI: Add a "Set Reminder" button (bell icon) next to each medication.
+
+Functionality: Allows both Patient and Doctor to set a specific time for a reminder.
+
+DATABASE SCHEMA (New): reminders (id, user_id (who set it), patient_id (who it's for), medication_id (optional), reminder_time, reminder_message, is_active).
+
+Implementation:
+
+Simple: Use the browser's Web Notifications API to show a simple alert (only works if the app is open in a browser tab).
+
+Advanced: Implement a Web Push service (like Firebase Cloud Messaging) to send true push notifications.
+
+API ENDPOINTS:
+
+POST /api/reminders: (Both roles) Creates a new reminder in the reminders table.
+
+GET /api/reminders: (Both roles) Fetches all active reminders for the logged-in user.

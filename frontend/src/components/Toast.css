@@ -1,0 +1,115 @@
+/* ==========================================================================
+   CALM TOAST NOTIFICATION SYSTEM
+   ========================================================================== */
+
+.toast-portal-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  pointer-events: none;
+  max-width: 380px;
+  width: calc(100% - 3rem);
+}
+
+.toast-item {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.1rem;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left-width: 4px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  color: var(--text-primary, #ffffff);
+  animation: toastSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-sizing: border-box;
+}
+
+[data-theme="light"] .toast-item {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  color: #0f172a;
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.toast-item.toast-success {
+  border-left-color: #10b981;
+}
+.toast-item.toast-success .toast-icon {
+  color: #10b981;
+}
+
+.toast-item.toast-error {
+  border-left-color: #ef4444;
+}
+.toast-item.toast-error .toast-icon {
+  color: #ef4444;
+}
+
+.toast-item.toast-info {
+  border-left-color: #0ea5e9;
+}
+.toast-item.toast-info .toast-icon {
+  color: #0ea5e9;
+}
+
+.toast-icon {
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.toast-body {
+  flex: 1;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.toast-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary, #64748b);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.toast-close-btn:hover {
+  color: var(--text-primary, #ffffff);
+}
+
+[data-theme="light"] .toast-close-btn:hover {
+  color: #0f172a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast-item {
+    animation: none !important;
+  }
+}

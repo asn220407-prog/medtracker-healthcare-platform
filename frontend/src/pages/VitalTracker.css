@@ -1,0 +1,1751 @@
+.vital-tracker-container {
+  padding: 1rem 0 3rem;
+  width: 100%;
+}
+
+.vital-tracker-header {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.vital-tracker-header h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem 0;
+}
+
+.vital-tracker-header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.vitals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+}
+
+/* Glassmorphic Vital Cards */
+.vital-card {
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.75rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #ffffff;
+  min-width: 0;
+  box-sizing: border-box;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+.vital-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .tracker-main-title {
+  color: #0f172a;
+}
+
+[data-theme="light"] .vital-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  color: #0f172a;
+}
+
+[data-theme="light"] .vital-card h3 {
+  color: #0f172a;
+  border-bottom-color: #e2e8f0;
+}
+
+[data-theme="light"] .info-item {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+[data-theme="light"] .info-item span {
+  color: #0f172a;
+}
+
+[data-theme="light"] .demographic-info-pill {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .demo-pill-label {
+  color: #64748b;
+}
+
+[data-theme="light"] .demo-pill-value {
+  color: #0f172a;
+}
+
+.vital-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.85rem;
+  letter-spacing: -0.01em;
+}
+
+.vital-card h3 svg {
+  color: #38bdf8;
+  font-size: 1.2rem;
+}
+
+/* Patient Info Grid */
+.patient-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.info-item {
+  background: rgba(30, 41, 59, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.85rem 1rem;
+  border-radius: var(--border-radius-sm);
+  min-width: 0;
+  word-break: break-word;
+}
+
+.info-item strong {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.info-item span {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Appointment Info Section */
+.appointment-info-section {
+  margin-top: 1.25rem;
+  padding: 1rem 1.15rem;
+  background: rgba(14, 165, 233, 0.06);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: var(--border-radius-sm);
+}
+
+.appointment-section-header {
+  font-size: 0.85rem;
+  color: #38bdf8;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.appointment-info-section p {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin: 0.35rem 0;
+  line-height: 1.5;
+}
+
+.appointment-info-section p strong {
+  color: #ffffff;
+}
+
+.log-consultation-btn {
+  margin-top: 1.25rem;
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.3) 100%);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: var(--border-radius-sm);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.log-consultation-btn:hover {
+  background: #10b981;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Health Tips List */
+.health-tips-list h3 {
+  justify-content: space-between;
+}
+
+.health-tips-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.health-tips-list li {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 3px solid #38bdf8;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.health-tips-list li .actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.add-btn {
+  background: rgba(14, 165, 233, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.add-btn:hover {
+  background: #0ea5e9;
+  color: #ffffff;
+}
+
+/* Adherence Analytics Card */
+.adherence-analytics-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.analytics-header h3 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.overall-badge {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.overall-badge strong {
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+/* Phase 6: Lab Reports Card */
+.lab-reports-card {
+  min-width: 0;
+}
+
+.lab-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.lab-card-header h3 {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.lab-reports-scroll-list {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.no-reports-msg {
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: 2rem 0.5rem;
+}
+
+.vital-reports-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.vital-report-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(30, 41, 59, 0.4);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
+}
+
+.vital-report-row:hover {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+.vital-report-main {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.pdf-color-icon {
+  color: #f43f5e;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.img-color-icon {
+  color: #38bdf8;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.vital-report-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.vital-report-name {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vital-report-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.vital-report-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 0.75rem;
+  flex-shrink: 0;
+}
+
+.vital-view-report-link {
+  background: rgba(14, 165, 233, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s;
+}
+
+.vital-view-report-link:hover {
+  background: #0ea5e9;
+  color: #ffffff;
+}
+
+.vital-delete-report-btn {
+  background: rgba(244, 63, 94, 0.1);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.2);
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.vital-delete-report-btn:hover {
+  background: #f43f5e;
+  color: #ffffff;
+}
+
+/* Medications List with Calendars */
+.medications-list {
+  grid-column: 1 / -1;
+}
+
+.medications-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.medications-list li {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.medications-list li:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.medication-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.medication-details {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.med-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.med-dosage {
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.medication-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.reminder-bell-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reminder-bell-btn:hover {
+  background: #f59e0b;
+  color: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.medications-list li .actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.medications-list li .actions button {
+  padding: 0.45rem 0.7rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.medications-list li .actions .edit-btn {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.medications-list li .actions .edit-btn:hover {
+  background: #f59e0b;
+  color: #1e293b;
+}
+
+.medications-list li .actions .delete-btn {
+  background: rgba(244, 63, 94, 0.1);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.medications-list li .actions .delete-btn:hover {
+  background: #f43f5e;
+  color: #ffffff;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 900px) {
+  .vitals-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .vital-tracker-container {
+    padding: 0.5rem 0 2rem;
+  }
+
+  .vital-tracker-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .vital-card {
+    padding: 1.25rem 1rem;
+    width: 100%;
+  }
+
+  .patient-info-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .vital-report-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .vital-report-buttons {
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-end;
+  }
+
+  .medication-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .medication-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+
+/* ==========================================================================
+   MULTI-DOCTOR CARE TEAM & REAL-TIME SYNC STYLES
+   ========================================================================== */
+
+.tracker-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.realtime-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+}
+
+.pulse-green-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: realtimePulse 2s infinite ease-in-out;
+}
+
+@keyframes realtimePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.assigned-doctors-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+}
+
+.assigned-doctors-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.assigned-doctor-chip {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.assigned-doctor-chip:hover {
+  border-color: rgba(6, 182, 212, 0.5);
+  transform: translateY(-2px);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.doc-chip-icon {
+  font-size: 1.4rem;
+  color: #38bdf8;
+  background: rgba(6, 182, 212, 0.15);
+  padding: 8px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.doc-chip-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.doc-chip-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.doc-chip-spec {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+.doc-chip-contact {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.med-prescriber-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.28);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  color: #c7d2fe;
+  margin-top: 4px;
+}
+
+.med-prescriber-badge strong {
+  color: #ffffff;
+}
+
+.prescriber-icon {
+  color: #818cf8;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+
+/* ==========================================================================
+   FINAL PASS: ADHERENCE SUMMARY DECK (Rings, Next Dose Due, Calm Streak)
+   ========================================================================== */
+
+.tracker-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.tracker-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary, #94a3b8);
+  margin-bottom: 0.25rem;
+}
+
+.tracker-main-title {
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.btn-chat-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #16423c;
+  border: 1px solid #16423c;
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(22, 66, 60, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-chat-trigger:hover {
+  background: #235850;
+  border-color: #235850;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(22, 66, 60, 0.35);
+}
+
+[data-theme="light"] .btn-chat-trigger {
+  background: #16423c;
+  border-color: #16423c;
+  color: #ffffff;
+}
+
+[data-theme="light"] .btn-chat-trigger:hover {
+  background: #235850;
+  color: #ffffff;
+  border-color: #235850;
+}
+
+.summary-compliance-breakdown {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 14px;
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.summary-compliance-breakdown .comp-today {
+  color: #34d399;
+}
+
+.summary-compliance-breakdown .comp-week {
+  color: #38bdf8;
+}
+
+[data-theme="light"] .summary-compliance-breakdown {
+  color: #475569;
+}
+
+[data-theme="light"] .summary-compliance-breakdown .comp-today {
+  color: #059669;
+}
+
+[data-theme="light"] .summary-compliance-breakdown .comp-week {
+  color: #0284c7;
+}
+
+/* Patient Demographics Summary Strip */
+.patient-demographics-summary-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scrollbar-width: thin;
+}
+
+.demographic-info-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.demographic-info-pill:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.demo-pill-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.06em;
+}
+
+.demo-pill-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.vital-adherence-summary-deck {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.summary-deck-card {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+  padding: 1.4rem 1.5rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-deck-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.15);
+}
+
+.rings-card {
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.next-dose-card {
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(14, 165, 233, 0.25);
+  border-color: rgba(14, 165, 233, 0.22);
+}
+
+.streak-card {
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(245, 158, 11, 0.2);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.summary-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.summary-card-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #f1f5f9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.summary-live-badge {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  letter-spacing: 0.04em;
+}
+
+.summary-clock-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(14, 165, 233, 0.18);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.streak-fire-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.summary-rings-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Next Dose Card */
+.next-dose-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.next-med-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.next-med-icon {
+  font-size: 1.5rem;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.18);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 0.65rem;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.next-med-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.next-med-dosage {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #38bdf8;
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+.next-med-instruction {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.mark-dose-taken-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.45);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mark-dose-taken-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.6);
+  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+}
+
+.mark-dose-taken-cta:active {
+  transform: scale(0.97);
+}
+
+.all-doses-completed-box {
+  text-align: center;
+  padding: 1.25rem 0.5rem;
+}
+
+.completed-check-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 0.75rem;
+  border-radius: 50%;
+  background: #10b981;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.5);
+}
+
+.all-doses-completed-box h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.35rem 0;
+}
+
+.all-doses-completed-box p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Streak Counter Body */
+.streak-counter-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.streak-number-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.streak-big-val {
+  font-size: 2.8rem;
+  font-weight: 900;
+  font-family: var(--font-mono, monospace);
+  color: #fbbf24;
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+  line-height: 1;
+}
+
+.streak-days-unit {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.streak-subtext {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.streak-progress-indicator {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.streak-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+  transition: width 0.4s ease;
+}
+
+/* ==========================================================================
+   MOBILE STICKY BOTTOM TABS (< 768px)
+   ========================================================================== */
+
+.vital-mobile-bottom-tabs {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  background: rgba(10, 15, 30, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem env(safe-area-inset-bottom, 0.5rem);
+  box-sizing: border-box;
+}
+
+[data-theme="light"] .vital-mobile-bottom-tabs {
+  background: rgba(255, 255, 255, 0.92);
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+.mobile-tab-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary, #64748b);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.4rem 0;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.tab-bar-icon {
+  font-size: 1.15rem;
+}
+
+.mobile-tab-btn.is-active {
+  color: #10b981;
+  font-weight: 700;
+}
+
+[data-theme="light"] .mobile-tab-btn.is-active {
+  color: #059669;
+}
+
+/* ==========================================================================
+   RESPONSIVE SUMMARY DECK
+   ========================================================================== */
+
+@media (max-width: 1023px) {
+  .vital-adherence-summary-deck {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .vital-mobile-bottom-tabs {
+    display: flex;
+  }
+
+  .vital-tracker-container {
+    padding-bottom: 5rem;
+  }
+
+  .vitals-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   2026 SPLIT-SCREEN DIAGNOSTIC SUITE & QUICK ACTIONS
+   ========================================================================== */
+
+.vital-split-report-btn {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.vital-split-report-btn:hover {
+  background: rgba(56, 189, 248, 0.25);
+  border-color: #38bdf8;
+  transform: translateY(-1px);
+}
+
+.split-lab-diagnostic-drawer {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: min(650px, 92vw);
+  height: calc(100vh - 90px);
+  background: rgba(10, 16, 26, 0.95);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(56, 189, 248, 0.15);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: splitDrawerSlide 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes splitDrawerSlide {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.split-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(18, 27, 43, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.split-drawer-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #e2e8f0;
+}
+
+.split-drawer-title strong {
+  color: #00f0b5;
+}
+
+.split-drawer-close-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.split-drawer-close-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #ffffff;
+}
+
+.split-drawer-body {
+  flex: 1;
+  background: #0f172a;
+}
+
+.split-drawer-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Floating Mobile Quick-Action Pill */
+.mobile-quick-action-pill {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-quick-action-pill {
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(10, 16, 26, 0.92);
+    border: 1px solid rgba(0, 240, 181, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 181, 0.2);
+    border-radius: 9999px;
+    padding: 6px 10px;
+    gap: 8px;
+    z-index: 900;
+    backdrop-filter: blur(16px);
+  }
+
+  .pill-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+  }
+
+  .pill-action-btn.primary {
+    background: #00f0b5;
+    color: #070b12;
+    border-color: #00f0b5;
+    font-weight: 700;
+  }
+}
+
+.ecg-integrated-pill {
+  padding: 2px 10px !important;
+}
+
+/* ==========================================================================
+   COMPREHENSIVE CLINICAL LIGHT THEME OVERRIDES FOR PATIENT PAGE
+   ========================================================================== */
+
+[data-theme="light"] .vital-tracker-header h2 {
+  color: #112a27;
+}
+
+[data-theme="light"] .vital-tracker-header p {
+  color: #5c7f7a;
+}
+
+[data-theme="light"] .tracker-eyebrow {
+  color: #5c7f7a;
+}
+
+[data-theme="light"] .tracker-main-title {
+  color: #112a27;
+}
+
+/* Patient Info Banner & Demographics */
+[data-theme="light"] .demographic-info-pill {
+  background: #ffffff;
+  border-color: #dbe7e4;
+  box-shadow: 0 2px 6px rgba(19, 62, 59, 0.04);
+}
+
+[data-theme="light"] .demo-pill-label {
+  color: #5c7f7a;
+}
+
+[data-theme="light"] .demo-pill-value {
+  color: #112a27;
+}
+
+/* 3-Card Summary Deck */
+[data-theme="light"] .summary-deck-card {
+  background: #ffffff;
+  border: 1px solid #dbe7e4;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(19, 62, 59, 0.05);
+}
+
+[data-theme="light"] .summary-deck-card:hover {
+  border-color: #cfdfdc;
+  box-shadow: 0 8px 24px rgba(19, 62, 59, 0.08);
+}
+
+[data-theme="light"] .summary-card-header {
+  border-bottom-color: #dbe7e4;
+}
+
+[data-theme="light"] .summary-card-title {
+  color: #112a27;
+  text-shadow: none;
+}
+
+/* Feature Next Dose Card (Signature Dribbble Spruce Card) */
+[data-theme="light"] .next-dose-card {
+  background: linear-gradient(175deg, #1c4a44 0%, #133e3b 60%, #0d2d2a 100%);
+  border: 1px solid #235850;
+  box-shadow: 0 16px 36px -10px rgba(19, 62, 59, 0.25);
+  color: #ffffff;
+}
+
+[data-theme="light"] .next-dose-card .summary-card-header {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="light"] .next-dose-card .summary-card-title {
+  color: #ffffff;
+}
+
+[data-theme="light"] .next-dose-card .next-med-name {
+  color: #ffffff;
+}
+
+[data-theme="light"] .next-dose-card .next-med-dosage {
+  color: #ffb3a1;
+}
+
+[data-theme="light"] .next-dose-card .next-med-instruction {
+  color: #c1e1dc;
+}
+
+[data-theme="light"] .next-dose-card .summary-clock-tag {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+[data-theme="light"] .next-dose-card .mark-dose-taken-cta {
+  background: #ffffff;
+  color: #16423c;
+  font-weight: 800;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .next-dose-card .mark-dose-taken-cta:hover {
+  background: #eaf4f2;
+  color: #0d2d2a;
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .streak-big-val {
+  color: #d97706;
+  text-shadow: none;
+}
+
+[data-theme="light"] .streak-days-unit {
+  color: #112a27;
+}
+
+[data-theme="light"] .streak-subtext {
+  color: #5c7f7a;
+}
+
+[data-theme="light"] .streak-progress-indicator {
+  background: #dbe7e4;
+}
+
+[data-theme="light"] .all-doses-completed-box h3 {
+  color: #112a27;
+}
+
+[data-theme="light"] .all-doses-completed-box p {
+  color: #5c7f7a;
+}
+
+/* Cards & Sections */
+[data-theme="light"] .vital-card {
+  background: #ffffff;
+  border-color: #dbe7e4;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(19, 62, 59, 0.04);
+  color: #112a27;
+}
+
+[data-theme="light"] .vital-card h3 {
+  color: #112a27;
+  border-bottom-color: #dbe7e4;
+}
+
+[data-theme="light"] .info-item {
+  background: #f3f8f7;
+  border-color: #dbe7e4;
+}
+
+[data-theme="light"] .info-item strong {
+  color: #5c7f7a;
+}
+
+[data-theme="light"] .info-item span {
+  color: #112a27;
+}
+
+[data-theme="light"] .appointment-info-section {
+  background: #eaf4f2;
+  border-color: #cfdfdc;
+}
+
+[data-theme="light"] .appointment-section-header {
+  color: #16423c;
+}
+
+[data-theme="light"] .appointment-info-section p {
+  color: #3b5f59;
+}
+
+[data-theme="light"] .appointment-info-section p strong {
+  color: #112a27;
+}
+
+[data-theme="light"] .health-tips-list li {
+  background: #ffffff;
+  border-color: #dbe7e4;
+  border-left: 3px solid #16423c;
+  color: #112a27;
+  box-shadow: 0 1px 3px rgba(19, 62, 59, 0.03);
+}
+
+[data-theme="light"] .overall-badge {
+  background: #eaf4f2;
+  border-color: #cfdfdc;
+  color: #16423c;
+}
+
+[data-theme="light"] .overall-badge strong {
+  color: #0f2e2a;
+}
+
+/* Assigned Doctors / Care Team */
+[data-theme="light"] .assigned-doctor-chip {
+  background: #ffffff;
+  border-color: #dbe7e4;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(19, 62, 59, 0.04);
+}
+
+[data-theme="light"] .assigned-doctor-chip:hover {
+  background: #f3f8f7;
+  border-color: #cfdfdc;
+}
+
+[data-theme="light"] .doc-chip-name {
+  color: #112a27;
+}
+
+[data-theme="light"] .doc-chip-spec {
+  color: #16423c;
+}
+
+[data-theme="light"] .doc-chip-contact {
+  color: #5c7f7a;
+}
+
+[data-theme="light"] .doc-chip-icon {
+  background: #eaf4f2;
+  color: #16423c;
+}
+
+/* Medications List */
+[data-theme="light"] .medications-list li {
+  background: #ffffff;
+  border-color: #dbe7e4;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(19, 62, 59, 0.05);
+}
+
+[data-theme="light"] .medications-list li:hover {
+  border-color: #cfdfdc;
+  box-shadow: 0 8px 24px rgba(19, 62, 59, 0.08);
+}
+
+[data-theme="light"] .medication-header-row {
+  border-bottom-color: #dbe7e4;
+}
+
+[data-theme="light"] .med-name {
+  color: #112a27;
+}
+
+[data-theme="light"] .med-dosage {
+  background: #eaf4f2;
+  border-color: #cfdfdc;
+  color: #16423c;
+}
+
+[data-theme="light"] .med-prescriber-badge {
+  background: #eaf4f2;
+  border-color: #cfdfdc;
+  color: #16423c;
+}
+
+[data-theme="light"] .med-prescriber-badge strong {
+  color: #0f2e2a;
+}
+
+[data-theme="light"] .reminder-bell-btn {
+  background: #fffbeb;
+  border-color: #fde68a;
+  color: #b45309;
+}
+
+[data-theme="light"] .reminder-bell-btn:hover {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+[data-theme="light"] .medications-list li .actions .edit-btn {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+[data-theme="light"] .medications-list li .actions .edit-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+[data-theme="light"] .medications-list li .actions .delete-btn {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+/* Lab Reports */
+[data-theme="light"] .vital-report-row {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+[data-theme="light"] .vital-report-row:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+[data-theme="light"] .vital-report-name {
+  color: #0f172a;
+}
+
+[data-theme="light"] .vital-report-sub {
+  color: #64748b;
+}
+
+[data-theme="light"] .vital-view-report-link {
+  background: #f0f9ff;
+  border-color: #bae6fd;
+  color: #0284c7;
+}
+
+[data-theme="light"] .vital-view-report-link:hover {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+[data-theme="light"] .vital-delete-report-btn {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+/* Split Diagnostic Drawer */
+[data-theme="light"] .split-lab-diagnostic-drawer {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.2);
+}
+
+[data-theme="light"] .split-drawer-header {
+  background: #f8fafc;
+  border-bottom-color: #e2e8f0;
+}
+
+[data-theme="light"] .split-drawer-title {
+  color: #0f172a;
+}
+
+[data-theme="light"] .split-drawer-close-btn {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #64748b;
+}
+
+[data-theme="light"] .split-drawer-close-btn:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+
+[data-theme="light"] .split-drawer-body {
+  background: #f8fafc;
+}
+
+/* Mobile Sticky Bottom Tabs */
+[data-theme="light"] .vital-mobile-bottom-tabs {
+  background: rgba(255, 255, 255, 0.95);
+  border-top-color: #e2e8f0;
+  box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .mobile-tab-btn {
+  color: #64748b;
+}
+
+[data-theme="light"] .mobile-tab-btn.is-active {
+  color: #0284c7;
+}
+

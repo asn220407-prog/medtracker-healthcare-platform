@@ -1,0 +1,142 @@
+/* ==========================================================================
+   MEDTRACKER DRIBBLE SPRUCE & SAGE THEME DESIGN TOKENS
+   Organic, calming, human-made healthcare design
+   ========================================================================== */
+
+:root {
+  /* Brand Core - Dribbble Spruce, Sage & Coral */
+  --brand-spruce: #16423c;
+  --brand-spruce-dark: #0f2e2a;
+  --brand-spruce-light: #235850;
+  --brand-cyan: #16423c;
+  --brand-cyan-hover: #235850;
+  --brand-cyan-glow: rgba(22, 66, 60, 0.25);
+  --brand-coral: #ff7e67;
+  --brand-sage: #eaf4f2;
+  --brand-indigo: #16423c;
+  --brand-indigo-glow: rgba(22, 66, 60, 0.2);
+
+  /* Semantic Role Accents */
+  --accent-patient: #16423c;
+  --accent-patient-hover: #235850;
+  --accent-patient-glow: rgba(22, 66, 60, 0.25);
+  --accent-patient-subtle: #eaf4f2;
+
+  --accent-doctor: #16423c;
+  --accent-doctor-hover: #235850;
+  --accent-doctor-glow: rgba(22, 66, 60, 0.25);
+  --accent-doctor-subtle: #eaf4f2;
+
+  --accent-alert: #e05b44;
+  --accent-alert-glow: rgba(224, 91, 68, 0.25);
+  --accent-alert-subtle: rgba(224, 91, 68, 0.12);
+
+  --accent-amber: #e59838;
+  --accent-amber-glow: rgba(229, 152, 56, 0.25);
+  --accent-amber-subtle: rgba(229, 152, 56, 0.12);
+
+  /* Container Sizing */
+  --container-max-w: 1240px;
+  --container-gutter: clamp(1rem, 4vw, 2rem);
+
+  /* Motion Curves */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-micro: 150ms;
+  --duration-fast: 200ms;
+  --duration-medium: 350ms;
+  --duration-staged: 600ms;
+
+  /* Fonts */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Radii (Soft & rounded like Dribbble UI) */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+}
+
+/* ==========================================================================
+   LIGHT THEME (Spruce & Sage Clean Palette)
+   ========================================================================== */
+:root,
+[data-theme="light"] {
+  --bg-canvas: #f3f8f7;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #eaf4f2;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f3f8f7;
+  --bg-glass-input: #ffffff;
+
+  --border-hairline: #dbe7e4;
+  --border-subtle: #cfdfdc;
+  --border-highlight: #16423c;
+
+  --text-primary: #112a27;
+  --text-secondary: #3b5f59;
+  --text-muted: #5c7f7a;
+  --text-dim: #8ba9a4;
+
+  --shadow-subtle: 0 1px 3px rgba(19, 62, 59, 0.05), 0 1px 2px rgba(19, 62, 59, 0.03);
+  --shadow-elevated: 0 10px 25px -3px rgba(19, 62, 59, 0.08), 0 4px 6px -4px rgba(19, 62, 59, 0.03);
+  --shadow-glow-cyan: 0 0 20px rgba(22, 66, 60, 0.12);
+  --shadow-glow-emerald: 0 0 20px rgba(22, 66, 60, 0.12);
+
+  --grain-opacity: 0;
+}
+
+/* ==========================================================================
+   DARK THEME (Deep Midnight Spruce & Pine)
+   ========================================================================== */
+[data-theme="dark"] {
+  --bg-canvas: #0a1716;
+  --bg-surface: #102422;
+  --bg-surface-elevated: #16302d;
+  --bg-card: #112422;
+  --bg-card-hover: #173330;
+  --bg-glass-input: #0b1d1b;
+
+  --border-hairline: #1c3b37;
+  --border-subtle: #244b46;
+  --border-highlight: #4ba295;
+
+  --text-primary: #edf7f5;
+  --text-secondary: #b5d8d3;
+  --text-muted: #8eb7b1;
+  --text-dim: #658c86;
+
+  --shadow-subtle: 0 4px 16px -2px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 12px 32px -4px rgba(0, 0, 0, 0.6);
+  --shadow-glow-cyan: 0 0 32px rgba(75, 162, 149, 0.18);
+  --shadow-glow-emerald: 0 0 32px rgba(75, 162, 149, 0.18);
+
+  --grain-opacity: 0;
+}
+
+/* ==========================================================================
+   GLOBAL UTILITIES
+   ========================================================================== */
+.container-gutter-bounded {
+  width: 100%;
+  max-width: var(--container-max-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-gutter);
+  padding-right: var(--container-gutter);
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
